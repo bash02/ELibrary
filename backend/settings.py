@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from datetime import timedelta
+import dj_database_url
 
 
 
@@ -122,6 +123,13 @@ DATABASES = {
         'PASSWORD': '19051905'
     }
     
+}
+
+DATABASES = {
+    "default": dj_database_url.parse(
+        "postgresql://elibrary_5y76_user:WyDpg6D3wKaIIPDrznbpnvyI5rpiv06q@dpg-d33hu23ipnbc73e1beqg-a.oregon-postgres.render.com/elibrary_5y76",
+        conn_max_age=600
+    )
 }
 
 
