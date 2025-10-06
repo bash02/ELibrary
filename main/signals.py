@@ -25,7 +25,7 @@ def set_user_inactive(sender, instance, created, **kwargs):
                 ).format(instance.get_full_name() or instance.username),
                 from_email=settings.DEFAULT_FROM_EMAIL,
                 recipient_list=[instance.email],
-                fail_silently=True,
+                fail_silently=False,
             )
         Thread(target=send_pending_email).start()
     elif not created and instance.is_active:
